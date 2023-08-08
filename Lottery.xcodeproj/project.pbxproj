@@ -9,17 +9,19 @@
 /* Begin PBXBuildFile section */
 		72AFC2912A821B310095D917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2902A821B310095D917 /* AppDelegate.swift */; };
 		72AFC2932A821B310095D917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2922A821B310095D917 /* SceneDelegate.swift */; };
-		72AFC2952A821B310095D917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2942A821B310095D917 /* ViewController.swift */; };
+		72AFC2952A821B310095D917 /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2942A821B310095D917 /* LotteryViewController.swift */; };
 		72AFC2982A821B310095D917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AFC2962A821B310095D917 /* Main.storyboard */; };
 		72AFC29A2A821B330095D917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72AFC2992A821B330095D917 /* Assets.xcassets */; };
 		72AFC29D2A821B330095D917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AFC29B2A821B330095D917 /* LaunchScreen.storyboard */; };
+		72AFC2A62A8224FD0095D917 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFC2A52A8224FD0095D917 /* Alamofire */; };
+		72AFC2A92A82250C0095D917 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 72AFC2A82A82250C0095D917 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72AFC28D2A821B310095D917 /* Lottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AFC2902A821B310095D917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AFC2922A821B310095D917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		72AFC2942A821B310095D917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		72AFC2942A821B310095D917 /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
 		72AFC2972A821B310095D917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72AFC2992A821B330095D917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72AFC29C2A821B330095D917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72AFC2A92A82250C0095D917 /* SwiftyJSON in Frameworks */,
+				72AFC2A62A8224FD0095D917 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +62,7 @@
 			children = (
 				72AFC2902A821B310095D917 /* AppDelegate.swift */,
 				72AFC2922A821B310095D917 /* SceneDelegate.swift */,
-				72AFC2942A821B310095D917 /* ViewController.swift */,
+				72AFC2942A821B310095D917 /* LotteryViewController.swift */,
 				72AFC2962A821B310095D917 /* Main.storyboard */,
 				72AFC2992A821B330095D917 /* Assets.xcassets */,
 				72AFC29B2A821B330095D917 /* LaunchScreen.storyboard */,
@@ -83,6 +87,10 @@
 			dependencies = (
 			);
 			name = Lottery;
+			packageProductDependencies = (
+				72AFC2A52A8224FD0095D917 /* Alamofire */,
+				72AFC2A82A82250C0095D917 /* SwiftyJSON */,
+			);
 			productName = Lottery;
 			productReference = 72AFC28D2A821B310095D917 /* Lottery.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,10 @@
 				Base,
 			);
 			mainGroup = 72AFC2842A821B310095D917;
+			packageReferences = (
+				72AFC2A42A8224FD0095D917 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				72AFC2A72A82250C0095D917 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 72AFC28E2A821B310095D917 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72AFC2952A821B310095D917 /* ViewController.swift in Sources */,
+				72AFC2952A821B310095D917 /* LotteryViewController.swift in Sources */,
 				72AFC2912A821B310095D917 /* AppDelegate.swift in Sources */,
 				72AFC2932A821B310095D917 /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lottery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lottery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -356,6 +370,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72AFC2A42A8224FD0095D917 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		72AFC2A72A82250C0095D917 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72AFC2A52A8224FD0095D917 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72AFC2A42A8224FD0095D917 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		72AFC2A82A82250C0095D917 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72AFC2A72A82250C0095D917 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 72AFC2852A821B310095D917 /* Project object */;
 }
