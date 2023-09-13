@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7205FA852AB203F0008E6C4C /* LotteryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA842AB203F0008E6C4C /* LotteryViewModel.swift */; };
+		7205FA872AB204FA008E6C4C /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205FA862AB204FA008E6C4C /* Lottery.swift */; };
 		72AFC2912A821B310095D917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2902A821B310095D917 /* AppDelegate.swift */; };
 		72AFC2932A821B310095D917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2922A821B310095D917 /* SceneDelegate.swift */; };
 		72AFC2952A821B310095D917 /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2942A821B310095D917 /* LotteryViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7205FA842AB203F0008E6C4C /* LotteryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewModel.swift; sourceTree = "<group>"; };
+		7205FA862AB204FA008E6C4C /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		72AFC28D2A821B310095D917 /* Lottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AFC2902A821B310095D917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AFC2922A821B310095D917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +66,9 @@
 			children = (
 				72AFC2902A821B310095D917 /* AppDelegate.swift */,
 				72AFC2922A821B310095D917 /* SceneDelegate.swift */,
+				7205FA862AB204FA008E6C4C /* Lottery.swift */,
 				72AFC2942A821B310095D917 /* LotteryViewController.swift */,
+				7205FA842AB203F0008E6C4C /* LotteryViewModel.swift */,
 				72AFC2962A821B310095D917 /* Main.storyboard */,
 				72AFC2992A821B330095D917 /* Assets.xcassets */,
 				72AFC29B2A821B330095D917 /* LaunchScreen.storyboard */,
@@ -150,8 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7205FA852AB203F0008E6C4C /* LotteryViewModel.swift in Sources */,
 				72AFC2952A821B310095D917 /* LotteryViewController.swift in Sources */,
 				72AFC2912A821B310095D917 /* AppDelegate.swift in Sources */,
+				7205FA872AB204FA008E6C4C /* Lottery.swift in Sources */,
 				72AFC2932A821B310095D917 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

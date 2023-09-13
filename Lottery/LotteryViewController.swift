@@ -6,76 +6,44 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
+import Combine
 
-class LotteryViewController: UIViewController {
+final class LotteryViewController: UIViewController {
+    
+    private let viewModel = LotteryViewModel()
+    private var anyCancellable = [AnyCancellable]()
 
     @IBOutlet var lotteryNumberLabels: [UILabel]!
     @IBOutlet weak var bonusLotteryNumberLabel: UILabel!
-    
+    @IBOutlet weak var textField: UITextField!
     private let picker = UIPickerView()
     
-    var sessions: [Int] = (1...1079).reversed()
-    
-    @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        picker.dataSource = self
-        picker.delegate = self
-        
-        textField.inputView = picker
-        request(session: sessions.first!)
-        textField.text = "\(sessions.first!)회차"
-        // Do any additional setup after loading the view.
-    }
-
-    func request(session: Int) {
-        let url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(session)"
-        
-        AF.request(url).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                var lottery = [Int]()
-                
-                (1...6).forEach { i in
-                    lottery.append(json["drwtNo\(i)"].intValue)
-                }
-                lottery.append(json["bnusNo"].intValue)
-                
-                self.updateLotteryLabel(with: lottery)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        //request
-        /*
-         {
-             "totSellamnt": 3681782000,
-             "returnValue": "success",
-             "drwNoDate": "2002-12-07",
-             "firstWinamnt": 0,
-             "drwtNo6": 40,
-             "drwtNo4": 33,
-             "firstPrzwnerCo": 0,
-             "drwtNo5": 37,
-             "bnusNo": 16,
-             "firstAccumamnt": 863604600,
-             "drwNo": 1,
-             "drwtNo2": 23,
-             "drwtNo3": 29,
-             "drwtNo1": 10
-         }
-         */
+        configureViews()
+        bindingViewModel()
+        request()
     }
     
-    private func updateLotteryLabel(with data: [Int]) {
-        for i in 0..<6 {
-            lotteryNumberLabels[i].text = "\(data[i])"
-        }
-        bonusLotteryNumberLabel.text = "\(data[6])"
+    func bindingViewModel() {
+        
+        viewModel.$lottery
+            .sink { lottery in
+                self.updateLabels(with: lottery)
+            }.store(in: &anyCancellable)
+        
+        viewModel.$session
+            .map { String($0) + "회차" }
+            .sink { session in
+                self.textField.text = session
+                self.request()
+            }
+            .store(in: &anyCancellable)
+    }
+    
+    func request() {
+        viewModel.request()
     }
 }
 
@@ -85,16 +53,36 @@ extension LotteryViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sessions.count
+        return viewModel.numberOfRows
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(sessions[row])회차"
+        return viewModel.titles[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        request(session: sessions[row])
-        textField.text = "\(sessions[row])회차"
+        viewModel.session = viewModel.titles[row]
+    }
+}
+
+extension LotteryViewController {
+    
+    func updateLabels(with lottery: Lottery?) {
+        guard let lottery else { return }
+        self.lotteryNumberLabels[0].text = String(lottery.drwtNo1)
+        self.lotteryNumberLabels[1].text = String(lottery.drwtNo2)
+        self.lotteryNumberLabels[2].text = String(lottery.drwtNo3)
+        self.lotteryNumberLabels[3].text = String(lottery.drwtNo4)
+        self.lotteryNumberLabels[4].text = String(lottery.drwtNo5)
+        self.lotteryNumberLabels[5].text = String(lottery.drwtNo6)
+        self.bonusLotteryNumberLabel.text = String(lottery.bnusNo)
+    }
+    
+    private func configureViews() {
+        picker.dataSource = self
+        picker.delegate = self
+        
+        textField.inputView = picker
     }
 }
 
